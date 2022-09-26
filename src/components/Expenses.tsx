@@ -1,4 +1,5 @@
 import ExpenseItem from '@/components/ExpenseItem';
+import Card from '@/components/Card';
 import { Expense } from '@/components/types';
 import '@/components/Expenses.css';
 
@@ -12,7 +13,7 @@ function Expenses(props: { expensesArray: Expense[] }) {
       date={expense.date}
     />
   ));
-  return <div className="expenses">{showEachExpense}</div>;
+  return <Card className="expenses">{showEachExpense}</Card>;
 }
 
 export default Expenses;
