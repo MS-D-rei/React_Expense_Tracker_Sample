@@ -1,7 +1,7 @@
-import ExpenseItem from '@/components/ExpenseItem';
-import Card from '@/components/Card';
-import { Expense } from '@/components/types';
-import '@/components/Expenses.css';
+import ExpenseItem from '@/components/Expenses/ExpenseItem';
+import Card from '@/components/UI/Card';
+import { Expense } from '@/components/Expenses/types';
+import '@/components/Expenses/Expenses.css';
 
 function Expenses(props: { expensesArray: Expense[] }) {
   const showEachExpense = props.expensesArray.map((expense) => (
