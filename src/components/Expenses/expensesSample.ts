@@ -1,6 +1,6 @@
-import { Expense } from '@/components/types';
+import { Expense } from '@/components/Expenses/types';
 
-export const expenses: Expense[] = [
+export const initialExpenses: Expense[] = [
   {
     id: 'e1',
     title: 'Toilet Paper',

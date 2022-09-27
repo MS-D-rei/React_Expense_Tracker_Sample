@@ -1,7 +1,7 @@
-import React, { FormEvent, useState } from 'react';
+import React, { useState } from 'react';
 import '@/components/NewExpense/NewExpenseForm.css';
 
-function NewExpenseForm() {
+function NewExpenseForm(props: { onSaveNewExpenseData: Function }) {
   const [enteredTitle, setEnteredTitle] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
@@ -47,10 +47,13 @@ function NewExpenseForm() {
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const newExpenseData = {
+      id: `e${Math.random()}`,
       title: enteredTitle,
       amount: enteredAmount,
       date: new Date(enteredDate)
     }
+    console.log(newExpenseData);
+    props.onSaveNewExpenseData(newExpenseData);
     setEnteredTitle('');
     setEnteredAmount('');
     setEnteredDate('');

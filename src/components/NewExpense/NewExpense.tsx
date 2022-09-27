@@ -1,10 +1,15 @@
 import NewExpenseForm from '@/components/NewExpense/NewExpenseForm';
 import '@/components/NewExpense/NewExpense.css'
+import { Expense } from '@/components/Expenses/types';
 
-function NewExpense() {
+function NewExpense(props: { onAddNewExpense: Function }) {
+  const saveNewExpenseDataHandler = (enteredExpenseData: Expense) => {
+    props.onAddNewExpense(enteredExpenseData)
+  }
+
   return (
     <div className='new-expense'>
-      <NewExpenseForm />
+      <NewExpenseForm onSaveNewExpenseData={saveNewExpenseDataHandler} />
     </div>
   )
 }

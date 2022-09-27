@@ -1,9 +1,17 @@
 // import React from 'react'; /* no longer need to import but still used under the hood */
+import { useState } from 'react';
 import Expenses from '@/components/Expenses/Expenses';
-import { expenses } from '@/components/Expenses/expensesSample';
 import NewExpense from '@/components/NewExpense/NewExpense';
+import { initialExpenses } from '@/components/Expenses/expensesSample';
+import { Expense } from '@/components/Expenses/types';
 
 function App() {
+  const [allExpenses, setAllExpenses] = useState(initialExpenses);
+  const addExpenseHandler = (newExpenseData: Expense) => {
+    setAllExpenses((prevState) => {
+      return [...prevState, newExpenseData];
+    });
+  };
   // return React.createElement(
   //   'div',
   //   {},
@@ -12,8 +20,8 @@ function App() {
   // );
   return (
     <div>
-      <NewExpense />
-      <Expenses expensesArray={expenses} />
+      <NewExpense onAddNewExpense={addExpenseHandler} />
+      <Expenses expensesArray={allExpenses} />
     </div>
   );
 }
