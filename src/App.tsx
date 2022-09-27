@@ -1,6 +1,7 @@
 // import React from 'react'; /* no longer need to import but still used under the hood */
 import Expenses from '@/components/Expenses/Expenses';
 import { expenses } from '@/components/Expenses/expensesSample';
+import NewExpense from '@/components/NewExpense/NewExpense';
 
 function App() {
   // return React.createElement(
@@ -11,7 +12,7 @@ function App() {
   // );
   return (
     <div>
-      <h2>Let's get started!</h2>
+      <NewExpense />
       <Expenses expensesArray={expenses} />
     </div>
   );
