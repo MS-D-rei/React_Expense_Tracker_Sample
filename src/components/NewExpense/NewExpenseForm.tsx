@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '@/components/NewExpense/NewExpenseForm.css';
 
-function NewExpenseForm(props: { onSaveNewExpenseData: Function }) {
+function NewExpenseForm(props: { onSaveNewExpenseData: Function, onFormCloseButton: Function }) {
   const [enteredTitle, setEnteredTitle] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
@@ -57,6 +57,11 @@ function NewExpenseForm(props: { onSaveNewExpenseData: Function }) {
     setEnteredTitle('');
     setEnteredAmount('');
     setEnteredDate('');
+    props.onFormCloseButton()
+  }
+
+  const cancelButtonHandler = () => {
+    props.onFormCloseButton()
   }
 
   return (
@@ -88,6 +93,7 @@ function NewExpenseForm(props: { onSaveNewExpenseData: Function }) {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type='button' onClick={cancelButtonHandler}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
