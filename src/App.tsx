@@ -9,7 +9,7 @@ function App() {
   const [allExpenses, setAllExpenses] = useState(initialExpenses);
   const addExpenseHandler = (newExpenseData: Expense) => {
     setAllExpenses((prevState) => {
-      return [...prevState, newExpenseData];
+      return [newExpenseData, ...prevState];
     });
   };
   // return React.createElement(
