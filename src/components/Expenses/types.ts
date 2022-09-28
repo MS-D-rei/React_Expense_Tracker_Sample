@@ -4,3 +4,8 @@ export interface Expense {
   amount: number;
   date: Date;
 }
+
+export interface ExpenseChartData {
+  label: string;
+  value: number
+}

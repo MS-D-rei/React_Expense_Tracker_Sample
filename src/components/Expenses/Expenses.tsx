@@ -1,9 +1,10 @@
+import { useState } from 'react';
 import Card from '@/components/UI/Card';
 import ExpensesFilter from '@/components/Expenses/ExpensesFilter';
+import ExpensesList from '@/components/Expenses/ExpensesList';
+import ExpensesChart from '@/components/Expenses/ExpensesChart';
 import { Expense } from '@/components/Expenses/types';
 import '@/components/Expenses/Expenses.css';
-import { useState } from 'react';
-import ExpensesList from '@/components/Expenses/ExpensesList';
 
 function Expenses(props: { expensesArray: Expense[] }) {
   const [filterYear, setFilterYear] = useState('All');
@@ -24,6 +25,7 @@ function Expenses(props: { expensesArray: Expense[] }) {
         selected={filterYear}
         onSelectFilterYear={expenseYearFilterHandler}
       />
+      <ExpensesChart filteredExpenses={filteredExpenses} />
       <ExpensesList list={filteredExpenses} />
     </Card>
   );

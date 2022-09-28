@@ -13,7 +13,7 @@ function ExpensesList(props: { list: Expense[] }) {
     />
   ));
 
-  const noExpensesFoundMessage = <p>No expense found.</p>;
+  const noExpensesFoundMessage = <h2 className='expenses-list__fallback'>No expense found.</h2>;
 
   let expensesContent: JSX.Element | JSX.Element[] = noExpensesFoundMessage;
   if (props.list.length > 0) {

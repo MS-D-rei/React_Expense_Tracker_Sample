@@ -49,7 +49,7 @@ function NewExpenseForm(props: { onSaveNewExpenseData: Function, onFormCloseButt
     const newExpenseData = {
       id: `e${Math.random()}`,
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate)
     }
     console.log(newExpenseData);
